@@ -1,3 +1,33 @@
-#loginForm {
-    
+#login {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: -6vh;
+}
+
+#loginTitle {
+    font-size: 10vh;
+}
+
+#username {
+    margin-top: -5vh;
+}
+
+input {
+    width: 30vw;
+    height: 10vh;
+}
+
+#submitUser {
+    margin-top: 15vh;
+    width: 20vh;
+    height: 20vh;
+    font-size: 6vh;
+}
+
+#game {
+    display: none;
 }

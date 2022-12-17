@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
-import { getDatabase, ref, child, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";2
+import { getDatabase, ref, child, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"; 2
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,26 +18,45 @@ const firebaseConfig = {
   measurementId: "G-2FRE7NY4PV"
 };
 
-// // Initialize Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const db = getDatabase()
+const dbRef = ref(getDatabase());
+const userId = NaN
 
-function createUser(username){
-  let id = "";
-  for(let i = 10; i >= 0; i--){
-    id += Math.round(Math.random() * 9)
-  }
-  return Number(id)
+function signIn() {
+  let username = document.getElementById("nameLogin").value
+  let password = document.getElementById("passwordLogin").value
+
+  get(child(dbRef, `users/` + username)).then((snapshot) => {
+    if (password == snapshot.val().password) {
+      userId = snapshot.val.id
+      localStorage.setItem("userId", userId)
+    }
+  })
 }
 
-// const db = getDatabase();
-//   set(ref(db, "test"), {
-//     a: 3,
-//     b: 4,
-//   })
+function createUser() {
+  let username = document.getElementById("nameCreate").value
+  let password = document.getElementById("passwordCreate").value
 
+  get(child(dbRef, `users/` + username)).then((snapshot) => {
+    if (snapshot.val() == null) {
 
-// const dbRef = ref(getDatabase());
-// get(child(dbRef, `test`)).then((snapshot) => {
-//     console.log(snapshot.val());
-//   })
+      let createId = "";
+      for (let i = 10; i >= 0; i--) {
+        createId += Math.round(Math.random() * 9)
+      }
+      createId = Number(createId)
+
+      set(ref(db, "users/" + username), {
+        id: createId,
+        password: password,
+      })
+    }
+  })
+}
+
+// document.getElementById("login").addEventListener("click", signIn)
+document.getElementById("create").addEventListener("click", createUser)

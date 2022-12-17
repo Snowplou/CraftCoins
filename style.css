@@ -32,7 +32,7 @@ input[type=text], input[type=password]{
     box-sizing: border-box;
   }
 
-button {
+#login, #create {
     background-color: #030804;
     color: white;
     padding: 14px 20px;
@@ -42,7 +42,7 @@ button {
     font-size: 18px;
   }
 
-button:hover {
+#login:hover, #create:hover {
     opacity: 0.6;
     cursor: pointer;
 }
@@ -56,19 +56,6 @@ button:hover {
 }
 .mainContainer{
     padding: 16px;
-}
-
-
-.subcontainer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.subcontainer a{
-    font-size: 16px;
-    margin-bottom: 12px;
 }
 
 span.forgotpsd a {

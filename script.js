@@ -34,6 +34,9 @@ function signIn() {
       userId = snapshot.val.id
       localStorage.setItem("userId", userId)
     }
+    else {
+      document.getElementById("infoLogin").innerText = "Incorrect Password Or Username"
+    }
   })
 }
 
@@ -51,12 +54,18 @@ function createUser() {
       createId = Number(createId)
 
       set(ref(db, "users/" + username), {
-        id: createId,
-        password: password,
+        password: password
       })
+      
+      set(ref(db, "ids/" + createId), username)
     }
   })
 }
 
-// document.getElementById("login").addEventListener("click", signIn)
-document.getElementById("create").addEventListener("click", createUser)
+try {
+  document.getElementById("login").addEventListener("click", signIn)
+
+}
+catch {
+  document.getElementById("create").addEventListener("click", createUser)
+}

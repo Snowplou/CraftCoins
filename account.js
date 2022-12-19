@@ -23,16 +23,26 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getDatabase()
 const dbRef = ref(getDatabase());
-const userId = NaN
+
+let userId = localStorage.getItem("userId")
+get(child(dbRef, `ids/` + userId)).then((snapshot) => {
+  if(snapshot.val() != null){
+    window.location.replace("menu.html")
+  }
+})
 
 function signIn() {
   let username = document.getElementById("nameLogin").value
   let password = document.getElementById("passwordLogin").value
 
   get(child(dbRef, `users/` + username)).then((snapshot) => {
-    if (password == snapshot.val().password) {
-      userId = snapshot.val.id
+    if(snapshot.val() == null){
+      document.getElementById("infoLogin").innerText = "Incorrect Password Or Username"
+    }
+    else if (password == snapshot.val().password) {
+      userId = snapshot.val().id
       localStorage.setItem("userId", userId)
+      window.location.replace("menu.html")
     }
     else {
       document.getElementById("infoLogin").innerText = "Incorrect Password Or Username"
@@ -54,10 +64,17 @@ function createUser() {
       createId = Number(createId)
 
       set(ref(db, "users/" + username), {
-        password: password
+        password: password,
+        id: createId
+      }).then(() => {
+        set(ref(db, "ids/" + createId), username)
+      }).then(() => {
+        localStorage.setItem("userId", createId)
+        window.location.replace("menu.html")
       })
-      
-      set(ref(db, "ids/" + createId), username)
+    }
+    else {
+      document.getElementById("infoCreate").innerText = "Username Already Exists"
     }
   })
 }

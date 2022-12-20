@@ -31,18 +31,36 @@ get(child(dbRef, `ids/` + userId)).then((snapshot) => {
   }
 })
 
+function hash(string) {
+  let hash = 0,
+    i, chr;
+  if (string.length === 0) return hash;
+  for (i = 0; i < string.length; i++) {
+    chr = string.charCodeAt(i);
+    hash = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+}
+
 function signIn() {
   let username = document.getElementById("nameLogin").value
   let password = document.getElementById("passwordLogin").value
 
-  get(child(dbRef, `users/` + username)).then((snapshot) => {
+  if(!username || !password){
+    return
+  }
+
+  get(child(dbRef, `users/` + username + "/password")).then((snapshot) => {
     if(snapshot.val() == null){
       document.getElementById("infoLogin").innerText = "Incorrect Password Or Username"
     }
-    else if (password == snapshot.val().password) {
-      userId = snapshot.val().id
+    else if (hash(password) == snapshot.val()) {
+      get(child(dbRef, `users/` + username + "/id")).then((snapshot) => {
+      userId = snapshot.val()
       localStorage.setItem("userId", userId)
       window.location.replace("menu.html")
+      })
     }
     else {
       document.getElementById("infoLogin").innerText = "Incorrect Password Or Username"
@@ -54,7 +72,11 @@ function createUser() {
   let username = document.getElementById("nameCreate").value
   let password = document.getElementById("passwordCreate").value
 
-  get(child(dbRef, `users/` + username)).then((snapshot) => {
+  if(!username || !password){
+    return
+  }
+
+  get(child(dbRef, `users/` + username + "/exists")).then((snapshot) => {
     if (snapshot.val() == null) {
 
       let createId = "";
@@ -64,7 +86,8 @@ function createUser() {
       createId = Number(createId)
 
       set(ref(db, "users/" + username), {
-        password: password,
+        exists: true,
+        password: hash(password),
         id: createId
       }).then(() => {
         set(ref(db, "ids/" + createId), username)

@@ -18,43 +18,6 @@ const firebaseConfig = {
   measurementId: "G-2FRE7NY4PV"
 };
 
-const games = {
-  Snake: {
-    picture: "snake.png",
-    description: "A recreation of the snake game. Collect apples to gain points, but make sure you don't hit yourself or a wall."
-  }/*,
-  "Flappy Bird": {
-    picture: "https://images.squarespace-cdn.com/content/v1/5b7ae719620b85e8c55a4821/1564073982545-R00MB5WN7F82OT42JWQV/Coming+Soon+Disclosures.io?format=1000w",
-    description: "Coming Soon!"
-  }*/
-}
-
-for (let game in games) {
-  let gameDiv = document.createElement("div")
-  gameDiv.className = "game"
-
-  let title = document.createElement("p")
-  title.innerText = game
-  title.className = "title"
-  gameDiv.appendChild(title)
-
-  let picture = document.createElement("img")
-  picture.src = games[game].picture
-  picture.className = "picture"
-  gameDiv.appendChild(picture)
-
-  let description = document.createElement("p")
-  description.innerText = games[game].description
-  description.className = "description"
-  gameDiv.appendChild(description)
-
-  gameDiv.addEventListener("click", () => {
-    window.location.replace("games/" + game + "/" + game + ".html")
-  })
-
-  document.getElementById("games").appendChild(gameDiv)
-}
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);

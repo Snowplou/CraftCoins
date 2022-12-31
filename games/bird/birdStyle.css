@@ -2,6 +2,20 @@ html {
     overflow-x: hidden;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #70c5ce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 #signOut {
     margin-left: -3vw;
     margin-top: -2vh;
@@ -20,3 +34,39 @@ html {
     border-radius: 8px;
     cursor: pointer;
 }
+
+
+
+
+#game-container {
+    position: relative;
+    width: 288px;
+    height: 512px;
+  }
+  
+  #bird {
+    width: 40px;
+    height: 40px;
+    background-color: #ff0000;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .pipe {
+    width: 60px;
+    height: 400px;
+    background-color: #00ff00;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .pipe:nth-of-type(odd) {
+    left: calc(50% - 80px);
+  }
+  
+  .pipe:nth-of-type(even) {
+    right: calc(50% - 80px);
+  }

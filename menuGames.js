@@ -77,5 +77,6 @@ get(child(dbRef, `ids/` + userId)).then((snapshot) => {
 
 document.getElementById("signOut").addEventListener("click", () => {
   localStorage.setItem("userId", null)
+  localStorage.setItem("username", null)
   window.location.replace("login.html")
 })

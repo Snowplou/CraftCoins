@@ -21,12 +21,12 @@ const firebaseConfig = {
 const games = {
   Snake: {
     picture: "snake.png",
-    description: "Collect apples to gain points, but make sure you don't hit yourself or a wall.",
+    description: "Collect apples to gain points, but make sure you don't hit yourself or a wall.\n\nCompatibility: Computers Only",
     file: "snake"
   },
   "Flappy Bird": {
     picture: "https://images.squarespace-cdn.com/content/v1/5b7ae719620b85e8c55a4821/1564073982545-R00MB5WN7F82OT42JWQV/Coming+Soon+Disclosures.io?format=1000w",
-    description: "Coming Soon!",
+    description: "Coming Soon!\n\nCompatibility: All Devices",
     file: "bird"
   }
 }

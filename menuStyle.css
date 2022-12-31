@@ -7,6 +7,11 @@
     cursor: pointer;
 }
 
+#coinDisplay {
+    text-align: center;
+    font-size: 150%;
+}
+
 #games {
     display: flex;
     flex-direction: row;

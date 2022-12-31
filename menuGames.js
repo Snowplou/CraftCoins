@@ -68,6 +68,11 @@ get(child(dbRef, `ids/` + userId)).then((snapshot) => {
   if (snapshot.val() == null) {
     window.location.replace("login.html")
   }
+  else{
+    get(child(dbRef, `users/` + snapshot.val() + "/coins")).then((snapshot) => {
+      document.getElementById("coinDisplay").innerHTML = "Coins: " + snapshot.val()
+    })
+  }
 })
 
 document.getElementById("signOut").addEventListener("click", () => {

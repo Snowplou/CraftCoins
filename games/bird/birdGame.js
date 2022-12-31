@@ -81,6 +81,21 @@ let score_title =
 // Setting initial game state to start
 let game_state = 'Start';
 
+document.addEventListener("touchstart", (e) => {
+  if (game_state != 'Play') {
+    document.querySelectorAll('.pipe_sprite')
+      .forEach((e) => {
+        e.remove();
+      });
+    bird.style.top = '40vh';
+    game_state = 'Play';
+    message.innerHTML = '';
+    score_title.innerHTML = 'Score : ';
+    score_val.innerHTML = '0';
+    play();
+  }
+})
+
 // Add an eventlistener for key presses
 document.addEventListener('keydown', (e) => {
 
@@ -160,6 +175,11 @@ function play() {
     if (game_state != 'Play') return;
     bird_dy = bird_dy + gravity;
     document.addEventListener('keydown', (e) => {
+      if (e.key == 'ArrowUp' || e.key == ' ') {
+        bird_dy = -force;
+      }
+    });
+    document.addEventListener('touchstart', (e) => {
       if (e.key == 'ArrowUp' || e.key == ' ') {
         bird_dy = -force;
       }

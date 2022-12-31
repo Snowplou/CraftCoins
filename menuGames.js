@@ -20,13 +20,11 @@ const firebaseConfig = {
 
 const games = {
   Snake: {
-    picture: "snake.png",
     description: "Collect apples to gain points, but make sure you don't hit yourself or a wall.\n\nCompatibility: Computers Only",
     file: "snake"
   },
   "Flappy Bird": {
-    picture: "https://images.squarespace-cdn.com/content/v1/5b7ae719620b85e8c55a4821/1564073982545-R00MB5WN7F82OT42JWQV/Coming+Soon+Disclosures.io?format=1000w",
-    description: "Coming Soon!\n\nCompatibility: All Devices",
+    description: "Jump through the tubes to earn points. If you touch a tube, you lose.\n\nCompatibility: All Devices",
     file: "bird"
   }
 }
@@ -41,7 +39,7 @@ for (let game in games) {
   gameDiv.appendChild(title)
 
   let picture = document.createElement("img")
-  picture.src = games[game].picture
+  picture.src = "pictures/" + games[game].file+ ".png"
   picture.className = "picture"
   gameDiv.appendChild(picture)
 

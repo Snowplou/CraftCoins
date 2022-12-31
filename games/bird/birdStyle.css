@@ -11,12 +11,12 @@ html {
 body {
     height: 100vh;
     width: 100vw;
-    background-color: skyblue;
+    background-color: lightskyblue;
 }
 
 #signOut {
     margin-left: -3vw;
-    margin-top: -2vh;
+    margin-top: -1vh;
     margin-bottom: 0vh;
     width: 20vw;
     height: 6vh;
@@ -39,7 +39,7 @@ body {
 .background {
   height: 100vh;
   width: 100vw;
-  background-color: skyblue;
+  background-color: lightskyblue;
 }
 
 .bird {

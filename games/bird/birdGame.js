@@ -36,15 +36,15 @@ get(child(dbRef, `users/` + localStorage.getItem("username") + "/coins")).then((
   totalCoins = snapshot.val()
 })
 
-// document.getElementById("signOut").addEventListener("click", () => {
-//   localStorage.setItem("userId", null)
-//   localStorage.setItem("username", null)
-//   window.location.replace("../../login.html")
-// })
+document.getElementById("signOut").addEventListener("click", () => {
+  localStorage.setItem("userId", null)
+  localStorage.setItem("username", null)
+  window.location.replace("../../login.html")
+})
 
-// document.getElementById("menu").addEventListener("click", () => {
-//   window.location.replace("../../menu.html")
-// })
+document.getElementById("menu").addEventListener("click", () => {
+  window.location.replace("../../menu.html")
+})
 
 
 document.getElementById("playAgain").addEventListener("click", () => {

@@ -40,7 +40,10 @@ document.getElementById("menu").addEventListener("click", () => {
   window.location.replace("../../menu.html")
 })
 
-
+let totalCoins = 0
+get(child(dbRef, `users/` + localStorage.getItem("username") + "/coins")).then((snapshot) => {
+  totalCoins = snapshot.val()
+})
 
 
 // Create game variables
@@ -203,6 +206,8 @@ function gameOver(square) {
   setTimeout(() => {
     document.getElementById("gameOver").style.display = "block"
     document.getElementById("board").style.display = "none"
+    totalCoins += score
+    document.getElementById("coinText").innerHTML = "Total Coins: " + totalCoins
   }, (((cycles + 1) * 2) - 1) * cycleTime)
 }
 

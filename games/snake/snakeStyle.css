@@ -68,6 +68,12 @@ html {
     margin-top: -7.5vh;
 }
 
+#coinText {
+    text-align: center;
+    margin-top: 4vh;
+    font-size: 4vh;
+}
+
 #playAgain {
     display: block;
     margin-left: auto;

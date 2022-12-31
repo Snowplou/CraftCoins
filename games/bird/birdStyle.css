@@ -1,19 +1,16 @@
 html {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-
+  
 body {
-    background-color: #70c5ce;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
+    width: 100vw;
 }
 
 #signOut {
@@ -38,35 +35,79 @@ body {
 
 
 
-#game-container {
-    position: relative;
-    width: 288px;
-    height: 512px;
-  }
-  
-  #bird {
-    width: 40px;
-    height: 40px;
-    background-color: #ff0000;
-    border-radius: 20px;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .pipe {
-    width: 60px;
-    height: 400px;
-    background-color: #00ff00;
-    position: absolute;
-    bottom: 0;
-  }
-  
-  .pipe:nth-of-type(odd) {
-    left: calc(50% - 80px);
-  }
-  
-  .pipe:nth-of-type(even) {
-    right: calc(50% - 80px);
-  }
+.background {
+  height: 100vh;
+  width: 100vw;
+  background-color: skyblue;
+}
+
+.bird {
+  height: 10vmin;
+  width: 16vmin;
+  position: fixed;
+  top: 40vh;
+  left: 30vw;
+  z-index: 100;
+}
+
+.pipe_sprite {
+  position: fixed;
+  top: 40vh;
+  left: 100vw;
+  height: 70vh;
+  width: 6vw;
+  background-color: green;
+}
+
+.message {
+  position: fixed;
+  z-index: 10;
+  height: 10vh;
+  font-size: 8vmin;
+  font-weight: 100;
+  color: black;
+  top: 12vh;
+  left: 15vw;
+  text-align: center;
+}
+
+.score {
+  position: fixed;
+  z-index: 10;
+  height: 10vh;
+  font-size: 10vh;
+  font-weight: 100;
+  color: goldenrod;
+  top: 0;
+  left: 0;
+}
+
+.score_val {
+  color: gold;
+}
+
+#gameOver {
+  display: none;
+  text-align: center;
+  margin-top: 17vh;
+  font-size: 10vmin;
+}
+
+#scoreText {
+  text-align: center;
+  font-size: 80%;
+  margin-top: 2vh;
+}
+
+#playAgain {
+  margin-top: 4vh;
+  width: 25vw;
+  height: 10vh;
+  border-radius: 4vmin;
+  cursor: pointer;
+}
+
+#coinText {
+  margin-top: 4vh;
+  font-size: 75%;
+}

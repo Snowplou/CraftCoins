@@ -3,12 +3,23 @@
     <!-- <button id="signOut">Sign Out</button>
     <button id="menu">Menu</button> -->
 
-    <div id="game-container">
-      <div id="bird"></div>
-      <div id="pipe-container">
-        <div class="pipe"></div>
-        <div class="pipe"></div>
-      </div>
+    <div id = "game">
+    <div class="background"></div>
+    <img class="bird" src="https://art.pixilart.com/b0f4ca051aa111f.png" alt="bird-img">
+    <div class="message">
+        Press Space To Start Game
+    </div>
+    <div class="score">
+        <span class="score_title"></span>
+        <span class="score_val"></span>
+    </div>
+    </div>
+
+    <div id="gameOver">
+      <p id="overText">Game Over!</p>
+      <p id="scoreText">Score:</p>
+      <button id="playAgain">Play Again</button>
+      <p id="coinText">Total Coins:</p>
     </div>
 
     <script type="module" src="birdGame.js"></script>

@@ -18,19 +18,20 @@
 
 .game {
     background-color: lightskyblue;
-    width: 45vw;
-    height: 45vh;
+    width: 48vmin;
+    height: 48vmin;
     text-align: center;
     cursor: pointer;
 }
 
 .title {
-    margin: 3%;
+    margin-top: 1.5%;
+    margin-bottom: 1%;
     font-size: 130%;
 }
 
 .picture {
-    width: 75%;
+    width: 30vmin;
 }
 
 .description {

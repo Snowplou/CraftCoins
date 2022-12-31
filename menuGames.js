@@ -21,12 +21,14 @@ const firebaseConfig = {
 const games = {
   Snake: {
     picture: "snake.png",
-    description: "A recreation of the snake game. Collect apples to gain points, but make sure you don't hit yourself or a wall."
-  }/*,
+    description: "A recreation of the snake game. Collect apples to gain points, but make sure you don't hit yourself or a wall.",
+    file: "snake"
+  },
   "Flappy Bird": {
     picture: "https://images.squarespace-cdn.com/content/v1/5b7ae719620b85e8c55a4821/1564073982545-R00MB5WN7F82OT42JWQV/Coming+Soon+Disclosures.io?format=1000w",
-    description: "Coming Soon!"
-  }*/
+    description: "Coming Soon!",
+    file: "bird"
+  }
 }
 
 for (let game in games) {
@@ -49,7 +51,7 @@ for (let game in games) {
   gameDiv.appendChild(description)
 
   gameDiv.addEventListener("click", () => {
-    window.location.replace("games/" + game + "/" + game + ".html")
+    window.location.replace("games/" + games[game].file + "/" + games[game].file + ".html")
   })
 
   document.getElementById("games").appendChild(gameDiv)

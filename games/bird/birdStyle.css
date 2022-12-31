@@ -1,6 +1,16 @@
 #signOut {
-    margin-left: 80vw;
+    margin-left: -3vw;
     margin-top: -2vh;
+    margin-bottom: 0vh;
+    width: 20vw;
+    height: 6vh;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#menu {
+    margin-left: 80vw;
+    margin-top: -6vh;
     width: 20vw;
     height: 6vh;
     border-radius: 8px;

@@ -10,6 +10,8 @@
 #coinDisplay {
     text-align: center;
     font-size: 150%;
+    margin-top: 2%;
+    margin-bottom: 5%;
 }
 
 #games {
@@ -17,14 +19,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 
 .game {
     background-color: lightskyblue;
     width: 48vmin;
-    height: 48vmin;
     text-align: center;
     cursor: pointer;
 }

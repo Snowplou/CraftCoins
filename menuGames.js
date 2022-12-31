@@ -21,7 +21,7 @@ const firebaseConfig = {
 const games = {
   Snake: {
     picture: "snake.png",
-    description: "A recreation of the snake game. Collect apples to gain points, but make sure you don't hit yourself or a wall.",
+    description: "Collect apples to gain points, but make sure you don't hit yourself or a wall.",
     file: "snake"
   },
   "Flappy Bird": {

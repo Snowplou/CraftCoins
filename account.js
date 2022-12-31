@@ -87,6 +87,7 @@ function createUser() {
       createId = Number(createId)
 
       set(ref(db, "users/" + username), {
+        coins: 0,
         exists: true,
         password: hash(password),
         id: createId

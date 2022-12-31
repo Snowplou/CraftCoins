@@ -180,9 +180,8 @@ function play() {
       }
     });
     document.addEventListener('touchstart', (e) => {
-      if (e.key == 'ArrowUp' || e.key == ' ') {
-        bird_dy = -force;
-      }
+        bird_dy = -force * 2;
+        gravity = 0.4
     });
 
     // Collision detection with bird and

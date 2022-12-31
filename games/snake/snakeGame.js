@@ -113,22 +113,22 @@ addEventListener("keydown", function (event) {
 function checkDirection() {
   if (Math.abs(touchendY - touchstartY) > Math.abs(touchendX - touchstartX)) {
     // Vertical changed more
-    if (touchendY > touchstartY && direction != "down") {
+    if (touchendY > touchstartY && direction != "down" && !directionChanged) {
       direction = "up"
       directionChanged = true
     }
-    else if (direction != "up") {
+    else if (direction != "up" && !directionChanged) {
       direction = "down"
       directionChanged = true
     }
   }
   else {
     // Horizontal changed more
-    if (touchendX < touchstartX && direction != "right") {
+    if (touchendX < touchstartX && direction != "right" && !directionChanged) {
       direction = "left"
       directionChanged = true
     }
-    else if (direction != "left") {
+    else if (direction != "left" && !directionChanged) {
       direction = "right"
       directionChanged = true
     }

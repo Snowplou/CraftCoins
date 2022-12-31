@@ -95,7 +95,7 @@ document.addEventListener("touchstart", (e) => {
 
     // Modify gravity for mobile devices
     force *= 2
-    gravity *= 8
+    gravity *= 6
 
     play();
   }

@@ -1,3 +1,7 @@
+html {
+    overflow-x: hidden;
+}
+
 #signOut {
     margin-left: -3vw;
     margin-top: -2vh;
@@ -14,5 +18,62 @@
     width: 20vw;
     height: 6vh;
     border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+
+
+#board {
+    margin-top: 3vh;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.square {
+    width: 4vh;
+    height: 4vh;
+    background-color: black;
+    /* margin: 0.1vh; */
+    margin: 0vh;
+}
+
+#scoreDisplay {
+    text-align: center;
+    font-size: 4vh;
+    margin: 2vh;
+}
+
+#gameOver {
+    display: none;
+    margin-top: 20vh;
+}
+
+#gameOverText {
+    text-align: center;
+    font-size: 10vh;
+}
+
+#scoreOver {
+    text-align: center;
+    font-size: 5vh;
+    margin-top: -7.5vh;
+}
+
+#playAgain {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40vw;
+    height: 10vh;
+    border-radius: 1000px;
     cursor: pointer;
 }

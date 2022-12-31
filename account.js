@@ -59,6 +59,7 @@ function signIn() {
       get(child(dbRef, `users/` + username + "/id")).then((snapshot) => {
       userId = snapshot.val()
       localStorage.setItem("userId", userId)
+      localStorage.setItem("username", username)
       window.location.replace("menu.html")
       })
     }
@@ -93,6 +94,7 @@ function createUser() {
         set(ref(db, "ids/" + createId), username)
       }).then(() => {
         localStorage.setItem("userId", createId)
+        localStorage.setItem("username", createId)
         window.location.replace("menu.html")
       })
     }

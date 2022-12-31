@@ -72,7 +72,25 @@ for (let i = 0; i < boardSize; i++) {
 }
 
 // Control snake
+let touchstartX = 0
+let touchstartY = 0
+let touchendX = 0
+let touchendY = 0
+
 let direction = "none"
+
+document.addEventListener('touchstart', e => {
+  touchstartX = e.changedTouches[0].screenX
+  touchstartY = e.changedTouches[0].screenY
+  checkDirection()
+})
+
+document.addEventListener('touchend', e => {
+  touchendX = e.changedTouches[0].screenX
+  touchendY = e.changedTouches[0].screenY
+  checkDirection()
+})
+
 addEventListener("keydown", function (event) {
   if ((event.key == "ArrowUp" || event.key == "w") && direction != "down" && !directionChanged) {
     direction = "up"
@@ -91,6 +109,31 @@ addEventListener("keydown", function (event) {
     directionChanged = true
   }
 })
+
+function checkDirection() {
+  if (Math.abs(touchendY - touchstartY) > Math.abs(touchendX - touchstartX)) {
+    // Vertical changed more
+    if (touchendY > touchstartY && direction != "down") {
+      direction = "up"
+      directionChanged = true
+    }
+    else if (direction != "up") {
+      direction = "down"
+      directionChanged = true
+    }
+  }
+  else {
+    // Horizontal changed more
+    if (touchendX < touchstartX && direction != "right") {
+      direction = "left"
+      directionChanged = true
+    }
+    else if (direction != "left") {
+      direction = "right"
+      directionChanged = true
+    }
+  }
+}
 
 // Intitalize snake and food
 // let snake = [[6, 10], [7, 10], [8, 10], [9, 10], [10, 10], [11, 10]]
@@ -211,6 +254,6 @@ function gameOver(square) {
   }, (((cycles + 1) * 2) - 1) * cycleTime)
 }
 
-document.getElementById("playAgain").addEventListener("click", () =>{
+document.getElementById("playAgain").addEventListener("click", () => {
   location.reload()
 })

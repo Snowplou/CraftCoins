@@ -92,6 +92,11 @@ document.addEventListener("touchstart", (e) => {
     message.innerHTML = '';
     score_title.innerHTML = 'Score : ';
     score_val.innerHTML = '0';
+
+    // Modify gravity for mobile devices
+    force *= 2
+    gravity *= 4
+
     play();
   }
 })
@@ -180,8 +185,7 @@ function play() {
       }
     });
     document.addEventListener('touchstart', (e) => {
-        bird_dy = -force * 2;
-        gravity = 0.4
+        bird_dy = -force;
     });
 
     // Collision detection with bird and

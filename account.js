@@ -95,7 +95,7 @@ function createUser() {
         set(ref(db, "ids/" + createId), username)
       }).then(() => {
         localStorage.setItem("userId", createId)
-        localStorage.setItem("username", createId)
+        localStorage.setItem("username", username)
         window.location.replace("menu.html")
       })
     }
